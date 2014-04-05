@@ -11,4 +11,4 @@ Imageflex allows you to create a website without having to worry about how image
 
 This is a forked version of Flowtype, brought to you by [Simple Focus](http://simplefocus.com). Follow Simple Focus on Twitter: [@simplefocus](http://twitter.com/simplefocus).
 
-FlowType.JS is licensed under the MIT License. See the LICENSE.txt file for copy permission.
+Imageflex and FlowType.JS are licensed under the MIT License. See the LICENSE.txt file for copy permission.
