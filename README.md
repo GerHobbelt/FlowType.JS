@@ -4,7 +4,7 @@ Dynamically scale images based on element width.
 
 ## What does Imageflex.JS do? ##
 
-Imageflex allows you to create a website without having to worry about how images are going to scale for different screen sizes.
+Imageflex allows you to create a website without having to worry about how images are going to scale for different screen sizes. Imageflex allows for greater control by allowing users to define maximum and minium bounds.
 
 
 ```
