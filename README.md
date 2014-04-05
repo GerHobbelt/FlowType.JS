@@ -10,11 +10,14 @@ Imageflex allows you to create a website without having to worry about how image
 
 Include the following in your header:
 
+```
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="flowtype.js"></script>
+```
 
 Place the call to Imageflex at the bottom of your Body tag:
 
+```
 <script>
 
 $(function(){
@@ -26,6 +29,7 @@ $(function(){
 	});
 });
 </script>
+```
 
 Your image/content will need to be wrapped in a DIV that has the specified ID (eg. #CSS_ID_for_image).
 
