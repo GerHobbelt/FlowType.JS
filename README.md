@@ -4,8 +4,33 @@ Dynamically scale images based on element width.
 
 ## What does Imageflex.JS do? ##
 
-Imageflex allows you to create a website without having to worry about how images are going to scale for different screen sizes. Imageflex allows for greater control by allowing users to define maximum and minium bounds.
+Imageflex allows you to create a website without having to worry about how images are going to scale for different screen sizes. Imageflex allows for greater control of image widths by allowing users to define maximum and minium screen width that your DIV container should scale for.
 
+## Using Imageflex.JS ##
+
+Include the following in your header:
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="flowtype.js"></script>
+
+Place the call to Imageflex at the bottom of your Body tag:
+
+<script>
+
+$(function(){
+    $('#CSS_ID_for_image').imageflex({
+	minimum: 480,
+	maximum: 1920,
+	minSize: 10,
+	maxSize: 60,
+	});
+});
+</script>
+
+Your image/content will need to be wrapped in a DIV that has the specified ID (eg. #CSS_ID_for_image).
+
+Maximum and minimum allow you to define what screen widths your images will scale within.
+minSize and maxSize allow you to define the max and min size of the image, measured by percentage.
 
 ## Brought to you by... ##
 
