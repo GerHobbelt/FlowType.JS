@@ -1,6 +1,6 @@
 # Imageflex.JS #
 
-Dynamically scale images based on element width.
+Dynamically scale images or DIVs based on element width.
 
 ## What does Imageflex.JS do? ##
 
