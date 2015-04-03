@@ -4,6 +4,11 @@ Responsive web typography at its finest: font-size ~~and line-height~~ based on 
 
 Check out the [demo site](http://simplefocus.com/flowtype).
 
+## Changes ##
+
+* Added `orientationchange` event.
+* Debounce recalculation after some delay.
+
 ## What does FlowType.JS do? ##
 
 Ideally, the most legible typography contains [between 45 and 75 characters per line](http://webtypography.net/2.1.2). This is difficult to accomplish for all screen widths with only CSS media-queries. FlowType.JS eases this difficulty by changing the font-size ~~and line-height~~ based on a specific element's width. This allows for a perfect character count per line at any screen width.
@@ -48,6 +53,15 @@ $('body').flowtype({
 });
 ```
 
+### Delay ###
+
+To decrease the computational cost set your own delay in milliseconds using the `delay` variable. The font-size will be recalculated after this delay after the resize event is finished.
+
+```javascript
+$('body').flowtype({
+   delay : 250
+});
+```
 
 ### Line-height ###
 

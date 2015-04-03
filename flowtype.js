@@ -11,38 +11,54 @@
 */
 
 (function($) {
-   $.fn.flowtype = function(options) {
+  $.fn.flowtype = function(options) {
 
-// Establish default settings/variables
-// ====================================
-      var settings = $.extend({
-         maximum   : 9999,
-         minimum   : 1,
-         maxFont   : 9999,
-         minFont   : 1,
-         fontRatio : 35
-      }, options),
+    // Establish default settings/variables
+    // ====================================
+    var settings = $.extend({
+      delay     : 250,
+      fontRatio : 35,
+      maxFont   : 9999,
+      maximum   : 9999,
+      minFont   : 1,
+      minimum   : 1
+    }, options),
 
-// Do the magic math
-// =================
-      changes = function(el) {
-         var $el = $(el),
-            elw = $el.width(),
-            width = elw > settings.maximum ? settings.maximum : elw < settings.minimum ? settings.minimum : elw,
-            fontBase = width / settings.fontRatio,
-            fontSize = fontBase > settings.maxFont ? settings.maxFont : fontBase < settings.minFont ? settings.minFont : fontBase;
-         $el.css('font-size', fontSize + 'px');
+    // Do the magic math
+    // =================
+    changes = function(el) {
+      var $el = $(el),
+        elw = $el.width(),
+        width = elw > settings.maximum ? settings.maximum : elw < settings.minimum ? settings.minimum : elw,
+        fontBase = width / settings.fontRatio,
+        fontSize = fontBase > settings.maxFont ? settings.maxFont : fontBase < settings.minFont ? settings.minFont : fontBase;
+      $el.css('font-size', fontSize + 'px');
+    },
+
+    // Debounce recalculation of fontSize
+    // =================
+    debounce = function (fn, delay) {
+      var timer = null;
+      return function () {
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          fn.apply(context, args);
+        }, delay);
       };
+    };
 
-// Make the magic visible
-// ======================
-      return this.each(function() {
+    // Make the magic visible
+    // ======================
+    return this.each(function() {
       // Context for resize callback
-         var that = this;
-      // Make changes upon resize
-         $(window).resize(function(){changes(that);});
+      var that = this;
+      // Make changes upon `resize` and `orientationchange`.
+      $(window).on('resize orientationchange', debounce(function(){
+        changes(that);
+      }, settings.delay));
       // Set changes on load
-         changes(this);
-      });
-   };
+      changes(this);
+    });
+  };
 }(jQuery));
