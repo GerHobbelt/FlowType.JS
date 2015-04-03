@@ -11,6 +11,8 @@
 */
 
 (function($) {
+  'use strict';
+
   $.fn.flowtype = function(options) {
 
     // Establish default settings/variables
@@ -26,7 +28,7 @@
 
     // Do the magic math
     // =================
-    changes = function(el) {
+    changes = function (el) {
       var $el = $(el),
         elw = $el.width(),
         width = elw > settings.maximum ? settings.maximum : elw < settings.minimum ? settings.minimum : elw,
@@ -50,11 +52,11 @@
 
     // Make the magic visible
     // ======================
-    return this.each(function() {
+    return this.each(function () {
       // Context for resize callback
       var that = this;
       // Make changes upon `resize` and `orientationchange`.
-      $(window).on('resize orientationchange', debounce(function(){
+      $(window).on('resize orientationchange', debounce(function () {
         changes(that);
       }, settings.delay));
       // Set changes on load
